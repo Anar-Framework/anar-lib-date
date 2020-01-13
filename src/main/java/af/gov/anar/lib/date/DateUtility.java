@@ -19,7 +19,7 @@ import java.util.*;
  * Provide Date and Time utility for usage across the application to manipulate
  * dates or calendars
  */
-public final class DateUtils {
+public final class DateUtility {
 
 	/**
 	 * Default UTC TimeZone.
@@ -34,7 +34,7 @@ public final class DateUtils {
 	 */
 	private static final String UTC_DATETIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
-	private DateUtils() {
+	private DateUtility() {
 
 	}
 

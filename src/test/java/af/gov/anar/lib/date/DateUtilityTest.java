@@ -20,7 +20,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public final class DateUtilTest {
+public final class DateUtilityTest {
 
 	private static Date TEST_DATE;
 
@@ -57,18 +57,18 @@ public final class DateUtilTest {
 
 	@Test
 	public void testAddDays() throws Exception {
-		Date result = DateUtils.addDays(TEST_DATE, 0);
+		Date result = DateUtility.addDays(TEST_DATE, 0);
 
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 2, 1);
 
-		result = DateUtils.addDays(TEST_DATE, 1);
+		result = DateUtility.addDays(TEST_DATE, 1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 6, 4, 3, 2, 1);
 
-		result = DateUtils.addDays(TEST_DATE, -1);
+		result = DateUtility.addDays(TEST_DATE, -1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 4, 4, 3, 2, 1);
@@ -77,18 +77,18 @@ public final class DateUtilTest {
 
 	@Test
 	public void testAddHours() throws Exception {
-		Date result = DateUtils.addHours(TEST_DATE, 0);
+		Date result = DateUtility.addHours(TEST_DATE, 0);
 
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 2, 1);
 
-		result = DateUtils.addHours(TEST_DATE, 1);
+		result = DateUtility.addHours(TEST_DATE, 1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 5, 3, 2, 1);
 
-		result = DateUtils.addHours(TEST_DATE, -1);
+		result = DateUtility.addHours(TEST_DATE, -1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 3, 3, 2, 1);
@@ -97,19 +97,19 @@ public final class DateUtilTest {
 
 	@Test
 	public void testAddMinutes() throws Exception {
-		Date result = DateUtils.addMinutes(TEST_DATE, 0);
+		Date result = DateUtility.addMinutes(TEST_DATE, 0);
 
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 2, 1);
 
-		result = DateUtils.addMinutes(TEST_DATE, 1);
+		result = DateUtility.addMinutes(TEST_DATE, 1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 
 		assertDate(result, 2018, 6, 5, 4, 4, 2, 1);
 
-		result = DateUtils.addMinutes(TEST_DATE, -1);
+		result = DateUtility.addMinutes(TEST_DATE, -1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 2, 2, 1);
@@ -118,17 +118,17 @@ public final class DateUtilTest {
 
 	@Test
 	public void testAddSeconds() throws Exception {
-		Date result = DateUtils.addSeconds(TEST_DATE, 0);
+		Date result = DateUtility.addSeconds(TEST_DATE, 0);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 2, 1);
 
-		result = DateUtils.addSeconds(TEST_DATE, 1);
+		result = DateUtility.addSeconds(TEST_DATE, 1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 3, 1);
 
-		result = DateUtils.addSeconds(TEST_DATE, -1);
+		result = DateUtility.addSeconds(TEST_DATE, -1);
 		assertNotSame(TEST_DATE, result);
 		assertDate(TEST_DATE, 2018, 6, 5, 4, 3, 2, 1);
 		assertDate(result, 2018, 6, 5, 4, 3, 1, 1);
@@ -136,20 +136,20 @@ public final class DateUtilTest {
 
 	@Test
 	public void testFormatCalender() throws Exception {
-		assertEquals(TEST_CALANDER_STRING, DateUtils.formatCalendar(TEST_CALANDER, "yyyyMdH"));
-		assertEquals(TEST_CALANDER_STRING, DateUtils.formatCalendar(TEST_CALANDER, "yyyyMdH", Locale.US));
-		assertEquals(TEST_CALANDER_STRING, DateUtils.formatCalendar(TEST_CALANDER, "yyyyMdH", TimeZone.getDefault()));
+		assertEquals(TEST_CALANDER_STRING, DateUtility.formatCalendar(TEST_CALANDER, "yyyyMdH"));
+		assertEquals(TEST_CALANDER_STRING, DateUtility.formatCalendar(TEST_CALANDER, "yyyyMdH", Locale.US));
+		assertEquals(TEST_CALANDER_STRING, DateUtility.formatCalendar(TEST_CALANDER, "yyyyMdH", TimeZone.getDefault()));
 		assertEquals(TEST_CALANDER_STRING,
-				DateUtils.formatCalendar(TEST_CALANDER, "yyyyMdH", TimeZone.getDefault(), Locale.US));
+				DateUtility.formatCalendar(TEST_CALANDER, "yyyyMdH", TimeZone.getDefault(), Locale.US));
 	}
 
 	@Test
 	public void testFormatDate() throws Exception {
-		assertEquals(TEST_CALANDER_STRING, DateUtils.formatDate(TEST_CALANDER.getTime(), "yyyyMdH"));
+		assertEquals(TEST_CALANDER_STRING, DateUtility.formatDate(TEST_CALANDER.getTime(), "yyyyMdH"));
 		assertEquals(TEST_CALANDER_STRING,
-				DateUtils.formatDate(TEST_CALANDER.getTime(), "yyyyMdH", TimeZone.getDefault()));
+				DateUtility.formatDate(TEST_CALANDER.getTime(), "yyyyMdH", TimeZone.getDefault()));
 		assertEquals(TEST_CALANDER_STRING,
-				DateUtils.formatDate(TEST_CALANDER.getTime(), "yyyyMdH", TimeZone.getDefault(), Locale.US));
+				DateUtility.formatDate(TEST_CALANDER.getTime(), "yyyyMdH", TimeZone.getDefault(), Locale.US));
 	}
 
 	private void assertDate(final Date date, final int year, final int month, final int day, final int hour,
@@ -179,18 +179,18 @@ public final class DateUtilTest {
 
 		Date nextDate = calendar.getTime();
 
-		assertTrue(DateUtils.after(nextDate, currDate));
+		assertTrue(DateUtility.after(nextDate, currDate));
 
-		assertFalse(DateUtils.after(currDate, nextDate));
+		assertFalse(DateUtility.after(currDate, nextDate));
 
-		assertFalse(DateUtils.after(currDate, currDate));
-		DateUtils.after(null, new Date());
+		assertFalse(DateUtility.after(currDate, currDate));
+		DateUtility.after(null, new Date());
 
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testDateAfterException() {
-		DateUtils.after(null, LocalDateTime.now());
+		DateUtility.after(null, LocalDateTime.now());
 	}
 
 	@Test
@@ -198,11 +198,11 @@ public final class DateUtilTest {
 
 		LocalDateTime nextLocalDateTime = currLocalDateTime.plusDays(1);
 
-		assertTrue(DateUtils.after(nextLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.after(nextLocalDateTime, currLocalDateTime));
 
-		assertFalse(DateUtils.after(currLocalDateTime, nextLocalDateTime));
+		assertFalse(DateUtility.after(currLocalDateTime, nextLocalDateTime));
 
-		assertFalse(DateUtils.after(currLocalDateTime, currLocalDateTime));
+		assertFalse(DateUtility.after(currLocalDateTime, currLocalDateTime));
 	}
 
 	// --------------------------------- Test for before-------------------
@@ -213,18 +213,18 @@ public final class DateUtilTest {
 		calendar.add(Calendar.DATE, -1);
 		Date previousDay = calendar.getTime();
 
-		assertTrue(DateUtils.before(previousDay, currDate));
+		assertTrue(DateUtility.before(previousDay, currDate));
 
-		assertFalse(DateUtils.before(currDate, previousDay));
+		assertFalse(DateUtility.before(currDate, previousDay));
 
-		assertFalse(DateUtils.before(currDate, currDate));
+		assertFalse(DateUtility.before(currDate, currDate));
 
-		DateUtils.before(null, currDate);
+		DateUtility.before(null, currDate);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testDateBeforeException() {
-		DateUtils.before(null, LocalDateTime.now());
+		DateUtility.before(null, LocalDateTime.now());
 	}
 
 	@Test
@@ -232,11 +232,11 @@ public final class DateUtilTest {
 
 		LocalDateTime previousLocalDateTime = currLocalDateTime.minusDays(1);
 
-		assertTrue(DateUtils.before(previousLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.before(previousLocalDateTime, currLocalDateTime));
 
-		assertFalse(DateUtils.before(currLocalDateTime, previousLocalDateTime));
+		assertFalse(DateUtility.before(currLocalDateTime, previousLocalDateTime));
 
-		assertFalse(DateUtils.before(currLocalDateTime, currLocalDateTime));
+		assertFalse(DateUtility.before(currLocalDateTime, currLocalDateTime));
 	}
 
 	// --------------------------------- Test for equal----------------------
@@ -244,18 +244,18 @@ public final class DateUtilTest {
 	public void testIsSameDayWithNextLocalDateTime() {
 		LocalDateTime nextLocalDateTime = currLocalDateTime.plusDays(1);
 
-		assertTrue(DateUtils.isSameDay(currLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.isSameDay(currLocalDateTime, currLocalDateTime));
 
-		assertFalse(DateUtils.isSameDay(currLocalDateTime, nextLocalDateTime));
+		assertFalse(DateUtility.isSameDay(currLocalDateTime, nextLocalDateTime));
 
-		assertFalse(DateUtils.isSameDay(nextLocalDateTime, currLocalDateTime));
+		assertFalse(DateUtility.isSameDay(nextLocalDateTime, currLocalDateTime));
 
-		DateUtils.isSameDay(null, currLocalDateTime);
+		DateUtility.isSameDay(null, currLocalDateTime);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testIsSameDayException() {
-		DateUtils.isSameDay(null, new Date());
+		DateUtility.isSameDay(null, new Date());
 	}
 
 	@Test
@@ -264,11 +264,11 @@ public final class DateUtilTest {
 		calendar.add(Calendar.DATE, 1);
 		Date nextDate = calendar.getTime();
 
-		assertTrue(DateUtils.isSameDay(currDate, currDate));
+		assertTrue(DateUtility.isSameDay(currDate, currDate));
 
-		assertFalse(DateUtils.isSameDay(currDate, nextDate));
+		assertFalse(DateUtility.isSameDay(currDate, nextDate));
 
-		assertFalse(DateUtils.isSameDay(nextDate, currDate));
+		assertFalse(DateUtility.isSameDay(nextDate, currDate));
 	}
 
 	@Test
@@ -277,11 +277,11 @@ public final class DateUtilTest {
 		calendar.add(Calendar.MILLISECOND, 1);
 		Date nextDate = calendar.getTime();
 
-		assertTrue(DateUtils.isSameDay(currDate, currDate));
+		assertTrue(DateUtility.isSameDay(currDate, currDate));
 
-		assertTrue(DateUtils.isSameDay(currDate, nextDate));
+		assertTrue(DateUtility.isSameDay(currDate, nextDate));
 
-		assertTrue(DateUtils.isSameDay(nextDate, currDate));
+		assertTrue(DateUtility.isSameDay(nextDate, currDate));
 	}
 
 	// @Test
@@ -289,11 +289,11 @@ public final class DateUtilTest {
 
 		LocalDateTime nextLocalDateTime = currLocalDateTime.plusHours(1);
 
-		assertTrue(DateUtils.isSameDay(currLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.isSameDay(currLocalDateTime, currLocalDateTime));
 
-		assertTrue(DateUtils.isSameDay(currLocalDateTime, nextLocalDateTime));
+		assertTrue(DateUtility.isSameDay(currLocalDateTime, nextLocalDateTime));
 
-		assertTrue(DateUtils.isSameDay(nextLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.isSameDay(nextLocalDateTime, currLocalDateTime));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -301,17 +301,17 @@ public final class DateUtilTest {
 
 		LocalDateTime nextLocalDateTime = currLocalDateTime.plusHours(1);
 
-		assertTrue(DateUtils.isSameInstant(currLocalDateTime, currLocalDateTime));
+		assertTrue(DateUtility.isSameInstant(currLocalDateTime, currLocalDateTime));
 
-		assertFalse(DateUtils.isSameInstant(currLocalDateTime, nextLocalDateTime));
+		assertFalse(DateUtility.isSameInstant(currLocalDateTime, nextLocalDateTime));
 
-		assertFalse(DateUtils.isSameInstant(nextLocalDateTime, currLocalDateTime));
-		DateUtils.isSameInstant(null, currLocalDateTime);
+		assertFalse(DateUtility.isSameInstant(nextLocalDateTime, currLocalDateTime));
+		DateUtility.isSameInstant(null, currLocalDateTime);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testIsSameInstantWithDifferentDate() {
-		DateUtils.isSameInstant(null, new Date());
+		DateUtility.isSameInstant(null, new Date());
 	}
 
 	@Test
@@ -321,34 +321,34 @@ public final class DateUtilTest {
 		calendar.add(Calendar.MILLISECOND, 1);
 		Date nextDate = calendar.getTime();
 
-		assertTrue(DateUtils.isSameInstant(currDate, currDate));
+		assertTrue(DateUtility.isSameInstant(currDate, currDate));
 
-		assertFalse(DateUtils.isSameInstant(currDate, nextDate));
+		assertFalse(DateUtility.isSameInstant(currDate, nextDate));
 
-		assertFalse(DateUtils.isSameInstant(nextDate, currDate));
+		assertFalse(DateUtility.isSameInstant(nextDate, currDate));
 	}
 
 	// --------------------------------- Test for exception----------------------
 	@Test(expected = IllegalArgumentException.class)
 	public void testDateAfterExceptionDateNull() {
-		DateUtils.after(null, currDate);
+		DateUtility.after(null, currDate);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testDateBeforeExceptionDateNull() {
-		DateUtils.before(currDate, null);
+		DateUtility.before(currDate, null);
 	}
 
 	// -----------------------------Parsing date test----------------------------
 
 	@Test
 	public void testGetUTCCurrentDateTime() {
-		assertNotNull(DateUtils.getUTCCurrentDateTime());
+		assertNotNull(DateUtility.getUTCCurrentDateTime());
 	}
 
 	@Test
 	public void testParseUTCToDefaultLocalDateTime() {
-		assertNotNull(DateUtils.convertUTCToLocalDateTime(DateUtils.getCurrentDateTimeString()));
+		assertNotNull(DateUtility.convertUTCToLocalDateTime(DateUtility.getCurrentDateTimeString()));
 	}
 
 	@Test
@@ -357,13 +357,13 @@ public final class DateUtilTest {
 				DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
 		ZonedDateTime z1 = exp.atZone(ZoneId.of(TimeZone.getDefault().getID()));
 		LocalDateTime utcDateTime = LocalDateTime.ofInstant(z1.toInstant(), ZoneOffset.UTC);
-		LocalDateTime act = DateUtils.parseUTCToLocalDateTime(utcDateTime.toString(), "yyyy-MM-dd'T'HH:mm:ss");
+		LocalDateTime act = DateUtility.parseUTCToLocalDateTime(utcDateTime.toString(), "yyyy-MM-dd'T'HH:mm:ss");
 		compareTwoLocalDateTime(exp, act);
 	}
 
 	@Test
 	public void testParseToDate() throws java.text.ParseException {
-		assertNotNull(DateUtils.parseToDate("2018/11/20 20:02:39", "yyyy/MM/dd HH:mm:ss", TimeZone.getDefault()));
+		assertNotNull(DateUtility.parseToDate("2018/11/20 20:02:39", "yyyy/MM/dd HH:mm:ss", TimeZone.getDefault()));
 	}
 
 	private void compareTwoLocalDateTime(LocalDateTime exp, LocalDateTime act) {
@@ -381,123 +381,123 @@ public final class DateUtilTest {
 
 	@Test(expected = NullPointerException.class)
 	public void testParseToDateExceptionNullDateString() throws java.text.ParseException {
-		DateUtils.parseToDate(null, "dd-MM-yyyy");
+		DateUtility.parseToDate(null, "dd-MM-yyyy");
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testParseToDateExceptionNullPatternString() throws java.text.ParseException {
-		DateUtils.parseToDate("2019-01-01", null);
+		DateUtility.parseToDate("2019-01-01", null);
 	}
 
 	@Test(expected = ParseException.class)
 	public void testParseToDateParseException() throws java.text.ParseException {
-		DateUtils.parseToDate("2019-01-01", "dd.MM.yyyy");
+		DateUtility.parseToDate("2019-01-01", "dd.MM.yyyy");
 	}
 
 	@Test
 	public void testParseUtcToDate() throws java.text.ParseException {
-		assertNotNull(DateUtils.parseToDate("2018/11/20 20:02:39", "yyyy/MM/dd HH:mm:ss", TimeZone.getTimeZone("UTC")));
+		assertNotNull(DateUtility.parseToDate("2018/11/20 20:02:39", "yyyy/MM/dd HH:mm:ss", TimeZone.getTimeZone("UTC")));
 	}
 
 	@Test
 	public void testGetUTCCurrentDateTimeString() {
-		assertNotNull(DateUtils.getUTCCurrentDateTimeString());
+		assertNotNull(DateUtility.getUTCCurrentDateTimeString());
 	}
 
 	@Test
 	public void testFormatUTCCurrentDateTimeString() {
-		assertNotNull(DateUtils.getUTCCurrentDateTimeString("yyyy/MM/dd HH:mm:ss"));
+		assertNotNull(DateUtility.getUTCCurrentDateTimeString("yyyy/MM/dd HH:mm:ss"));
 	}
 
 	@Test(expected = DateTimeParseException.class)
 	public void testParseUTCToDefaultLocalDateTimeException() {
-		DateUtils.convertUTCToLocalDateTime("22-01-2108");
+		DateUtility.convertUTCToLocalDateTime("22-01-2108");
 	}
 
 	@Test(expected = ParseException.class)
 	public void testParseUTCToLocalDateTimeException() {
-		DateUtils.parseUTCToLocalDateTime("22-01-2108", "yyyy-MM-dd'T'HH:mm:ss.SSS");
+		DateUtility.parseUTCToLocalDateTime("22-01-2108", "yyyy-MM-dd'T'HH:mm:ss.SSS");
 	}
 
 	// New test case added
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void addDaysIllegalArgumentException() {
-		DateUtils.addDays(null, 2);
+		DateUtility.addDays(null, 2);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void addHoursIllegalArgumentException() {
-		DateUtils.addHours(null, 2);
+		DateUtility.addHours(null, 2);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void addMinutesIllegalArgumentException() {
-		DateUtils.addMinutes(null, 2);
+		DateUtility.addMinutes(null, 2);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void addSecondsIllegalArgumentException() {
-		DateUtils.addSeconds(null, 2);
+		DateUtility.addSeconds(null, 2);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatDateIllegalArgumentException() {
-		DateUtils.formatDate(new Date(), null);
+		DateUtility.formatDate(new Date(), null);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatDateWithTimeZoneIllegalArgumentException() {
-		DateUtils.formatDate(new Date(), null, null);
+		DateUtility.formatDate(new Date(), null, null);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatDateWithTimeZoneLocaleIllegalArgumentException() {
-		DateUtils.formatDate(new Date(), null, null, null);
+		DateUtility.formatDate(new Date(), null, null, null);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatCalendarIllegalArgumentException() {
-		DateUtils.formatCalendar(Calendar.getInstance(), null);
+		DateUtility.formatCalendar(Calendar.getInstance(), null);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatCalendarZoneIllegalArgumentException() {
-		DateUtils.formatCalendar(Calendar.getInstance(), null, TimeZone.getDefault());
+		DateUtility.formatCalendar(Calendar.getInstance(), null, TimeZone.getDefault());
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatCalendarLocaleIllegalArgumentException() {
-		DateUtils.formatCalendar(Calendar.getInstance(), null, Locale.getDefault());
+		DateUtility.formatCalendar(Calendar.getInstance(), null, Locale.getDefault());
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void formatCalendarZoneLocalIllegalArgumentException() {
-		DateUtils.formatCalendar(Calendar.getInstance(), null, TimeZone.getDefault(), null);
+		DateUtility.formatCalendar(Calendar.getInstance(), null, TimeZone.getDefault(), null);
 	}
 
 	@Test
 	public void parseToLocalDateTime() {
-		DateUtils.parseToLocalDateTime(LocalDateTime.now().toString());
+		DateUtility.parseToLocalDateTime(LocalDateTime.now().toString());
 	}
 
 	@Test
 	public void formatToISOString() {
-		DateUtils.formatToISOString(LocalDateTime.now());
+		DateUtility.formatToISOString(LocalDateTime.now());
 	}
 
 	@Test(expected = ParseException.class)
 	public void parseUTCToDate() {
-		DateUtils.parseUTCToDate(LocalDateTime.now().toString(), "dd.MM.yyyy");
+		DateUtility.parseUTCToDate(LocalDateTime.now().toString(), "dd.MM.yyyy");
 	}
 
 	@Test(expected = ParseException.class)
 	public void parseUTCToDateStirng() {
-		DateUtils.parseUTCToDate("2019.01.01");
+		DateUtility.parseUTCToDate("2019.01.01");
 	}
 
 	@Test(expected = ParseException.class)
 	public void parseToDate() {
-		DateUtils.parseToDate(LocalDateTime.now().toString(), "dd.MM.yyyy", TimeZone.getDefault());
+		DateUtility.parseToDate(LocalDateTime.now().toString(), "dd.MM.yyyy", TimeZone.getDefault());
 	}
 
 	@Test
@@ -506,7 +506,7 @@ public final class DateUtilTest {
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 		dateFormatter.setTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")));
 		String expectedDate = dateFormatter.format(date);
-		String actualDate = DateUtils.getUTCTimeFromDate(date);
+		String actualDate = DateUtility.getUTCTimeFromDate(date);
 		assertTrue(expectedDate.equals(actualDate));
 	}
 }
