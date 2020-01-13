@@ -28,4 +28,7 @@ public class NullPointerException extends BaseUncheckedException {
 
 	}
 
+	public NullPointerException(String dateString_or_dateFormat_is_null) {
+		super(dateString_or_dateFormat_is_null);
+	}
 }
