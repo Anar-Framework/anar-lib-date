@@ -1,8 +1,8 @@
 
 package af.gov.anar.lib.date;
 
-import af.gov.anar.lib.date.exception.IllegalArgumentException;
-import af.gov.anar.lib.date.exception.NullPointerException;
+import af.gov.anar.lang.infrastructure.exception.common.IllegalArgumentException;
+import af.gov.anar.lang.infrastructure.exception.common.NullPointerException;
 import af.gov.anar.lib.date.util.DateUtilConstants;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -648,7 +648,7 @@ public final class DateUtility {
 		try {
 			return simpleDateFormat.parse(utcDateTime).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 		} catch (ParseException e) {
-			throw new af.gov.anar.lib.date.exception.ParseException(
+			throw new af.gov.anar.lang.infrastructure.exception.common.ParseException(
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getEexceptionMessage(), e);
 		}
@@ -689,7 +689,7 @@ public final class DateUtility {
 		try {
 			return simpleDateFormat.parse(utcDateTime);
 		} catch (ParseException e) {
-			throw new af.gov.anar.lib.date.exception.ParseException(
+			throw new af.gov.anar.lang.infrastructure.exception.common.ParseException(
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getEexceptionMessage(), e);
 		}
@@ -716,7 +716,7 @@ public final class DateUtility {
 		try {
 			return simpleDateFormat.parse(utcDateTime);
 		} catch (ParseException e) {
-			throw new af.gov.anar.lib.date.exception.ParseException(
+			throw new af.gov.anar.lang.infrastructure.exception.common.ParseException(
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getEexceptionMessage(), e);
 		}
@@ -746,7 +746,7 @@ public final class DateUtility {
 		try {
 			return simpleDateFormat.parse(dateTime);
 		} catch (ParseException e) {
-			throw new af.gov.anar.lib.date.exception.ParseException(
+			throw new af.gov.anar.lang.infrastructure.exception.common.ParseException(
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getEexceptionMessage(), e);
 		}
@@ -771,7 +771,7 @@ public final class DateUtility {
 			throw new NullPointerException(
 					DateUtilConstants.ILLEGALARGUMENT_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.ILLEGALARGUMENT_ERROR_CODE.getEexceptionMessage(),
-					new NullPointerException("dateString or dateFormat is null"));
+					new java.lang.NullPointerException("dateString or dateFormat is null"));
 		}
 		try {
 
@@ -780,7 +780,7 @@ public final class DateUtility {
 			return simpleDateFormat.parse(dateString);
 
 		} catch (Exception e) {
-			throw new af.gov.anar.lib.date.exception.ParseException(
+			throw new af.gov.anar.lang.infrastructure.exception.common.ParseException(
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getErrorCode(),
 					DateUtilConstants.PARSE_EXCEPTION_ERROR_CODE.getEexceptionMessage(), e.getCause());
 		}
