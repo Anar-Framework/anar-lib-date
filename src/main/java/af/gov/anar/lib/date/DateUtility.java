@@ -541,6 +541,14 @@ public final class DateUtility {
 		return ZonedDateTime.now(ZoneOffset.UTC).toLocalDateTime();
 	}
 
+	public static Date getCurrentDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate now = LocalDate.now();
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		Date date = Date.from(now.atStartOfDay(defaultZoneId).toInstant());
+		return date;
+	}
+
 	/**
 	 * Provides UTC Current DateTime string in default ISO pattern -
 	 * <b>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</b>.
